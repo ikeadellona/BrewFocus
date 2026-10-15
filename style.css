@@ -1,0 +1,68 @@
+body {
+    background-color: #F4E4C9;
+    color: #67412E;
+    font-family: monospace;
+    text-align: center;
+    margin: 0;
+}
+
+.app {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+}
+/* style our cafe header */
+header {
+    background-color: #67412E;
+    color: #FFF1D5;
+    padding: 20px;
+    border: 4px solid #3E261B;
+}
+
+header h1 {
+    font-size: 32px;
+    margin: 0;
+}
+
+header p {
+    font-size: 12px;
+}
+
+/* Create drink grid */
+
+.drink-menu {
+    margin-top: 30px;
+}
+.drink-menu h2 {
+    color: #67412E;
+    font-size: 28px;
+}
+
+.drink-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+/*  style each drink button  */
+
+.drink-card {
+    background-color: #FFF3DF;
+    color: #67412E;
+    border: 3px solid #B98D68;
+    padding: 20px;
+    font-family: monospace;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.drink-icon {
+    display: block;
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.drink-card:hover {
+    background-color: #E8C9A7;
+    border-color: #67412E;
+}
