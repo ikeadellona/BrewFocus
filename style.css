@@ -66,3 +66,8 @@ header p {
     background-color: #E8C9A7;
     border-color: #67412E;
 }
+
+.drink-card.selected {
+    background-color: #92b27c;
+    border-color: #4A5D3A;
+}
