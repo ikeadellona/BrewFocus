@@ -1,15 +1,25 @@
 body {
-    background-color: #F4E4C9;
+    /* background-color: #F4E4C9;
     color: #67412E;
     font-family: monospace;
-    text-align: center;
+    text-align: center; */
     margin: 0;
 }
 
 .app {
-    max-width: 600px;
+    /* max-width: 600px;
     margin: 40px auto;
     padding: 20px;
+    */
+    min-height: 100dvh;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 /* style our cafe header */
 header {
@@ -70,4 +80,117 @@ header p {
 .drink-card.selected {
     background-color: #92b27c;
     border-color: #4A5D3A;
+}
+
+.timer-section {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #FFF3DF;
+    border: 3px solid #B98D68;
+}
+
+#timer-display {
+    font-size: 60px;
+    font-weight: bold;
+    color: #67412E;
+    margin: 20px 0;
+}
+
+.timer-controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.timer-controls button {
+    background-color: #A8B88A;
+    color: #67412E;
+    border: 3px solid #67412E;
+    padding: 10px 20px;
+    font-family: monospace;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.timer-controls button:hover {
+    background-color: #C7956D;
+}
+
+.drink-container {
+    position: relative;
+    width: 256px;
+    height: 256px;
+    margin: 20px auto;
+    image-rendering: pixelated;
+}
+
+.cup,
+.ice {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.cup {
+    z-index: 3;
+}
+
+.ice {
+    z-index: 2;
+}
+
+.liquid-mask {
+    position: absolute;
+    inset: 0;
+    clip-path: polygon(
+        37% 27%,
+        66% 27%,
+        64% 75%,
+        60% 79%,
+        42% 79%,
+        39% 75%
+    );
+    z-index: 1;
+}
+
+#liquid {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #8B5A3C;
+    transition: height 1s linear;
+}
+
+.session-controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.session-controls button {
+    background-color: #FFF3DF;
+    color: #67412E;
+    border: 2px solid #67412E;
+    padding: 10px;
+    font-family: monospace;
+    cursor: pointer;
+}
+
+.session-controls button:hover {
+    background-color: #A8B88A;
+}
+
+#session-label {
+    font-size: 20px;
+    font-weight: bold;
+    color: #67412E;
+}
+
+.hidden {
+    display: none;
 }

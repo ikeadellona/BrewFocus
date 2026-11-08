@@ -18,8 +18,9 @@
             <p>Good ideas take time.</p>
         </header>
 
-        <!-- Drink selection section -->
-        <section class="drink-menu">
+        <!-- screen 1 : Drink selection section -->
+        <section id="drink-screen" class="drink-menu">
+
             <h2>Choose Your Drink...</h2>
 
             <!-- Container for the four drinks -->
@@ -47,6 +48,30 @@
 
             </div>
             <p id="selected-drink">No drink selected yet.</p>
+        </section>
+
+        <!-- Screen 2: Timer section -->
+        <section id="timer-screen" class="timer-section hidden">
+
+            <!-- <h2>Focus Timer</h2> -->
+
+            <p id="session-label">Focus Session</p>
+
+            <p id="timer-display">25:00</p>
+                
+            <div class="drink-container">
+                <div class="liquid-mask">
+                    <div id="liquid"></div>
+                </div>
+                <img src="images/ice-coffee.png" class="ice" alt="Iced coffee cubes">
+                <img src="images/Icedcoffee-cup.png" class="cup" alt="Iced Coffee Cup">
+            </div>
+                
+            <div class="timer-controls">
+                <button id="start-btn">Start</button>
+                <button id="pause-btn">Pause</button>
+                <button id="reset-btn">Reset</button>
+            </div>
         </section>
 
     </div>
