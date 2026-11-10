@@ -12,7 +12,7 @@ drinkButtons.forEach(function(button) {
 
         // Select the clicked button
         button.classList.add("selected");
-        selectedDrinkText.textContent = "Your study drink is " + button.dataset.drink + "!";
+        // selectedDrinkText.textContent = "Your study drink is " + button.dataset.drink + "!";
         
         // Hide the drink selection screen
         document.getElementById("drink-screen").classList.add("hidden");
@@ -32,9 +32,12 @@ drinkButtons.forEach(function(button) {
 // Timer variables
 
 const durations = {
-    focus: 25 * 60,
-    shortBreak: 5 * 60,
-    longBreak: 15 * 60
+    // focus: 25 * 60,
+    // shortBreak: 5 * 60,
+    // longBreak: 15 * 60
+    focus: 10,
+    shortBreak: 5,
+    longBreak: 8
 };
 
 let currentMode = "focus";
@@ -79,6 +82,7 @@ function startTimer() {
 
         if (timeLeft <= 0) {
             pauseTimer();
+            completeSession();
         }
     }, 1000);
 }
@@ -100,6 +104,8 @@ function completeSession() {
         switchMode("focus");
         alert("Break complete! Ready to focus?");
     }
+
+    startTimer();
 }
 
 
@@ -144,6 +150,21 @@ function switchMode(mode) {
     updateDisplay();
 }
 
+const homeLink = document.getElementById("home-link");
+
+homeLink.addEventListener("click", function(event) {
+    event.preventDefault();
+
+    // Stop the timer
+    pauseTimer();
+
+    // Return to drink selection
+    document.getElementById("timer-screen").classList.add("hidden");
+    document.getElementById("drink-screen").classList.remove("hidden");
+
+    // Reset to focus mode
+    switchMode("focus");
+});
 // document.getElementById("focus-mode").addEventListener("click", function() {
 //     switchMode("focus");
 // });
