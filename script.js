@@ -52,8 +52,7 @@ const liquid = document.getElementById("liquid");
 
 // Get HTML elements
 const timerDisplay = document.getElementById("timer-display");
-const startButton = document.getElementById("start-btn");
-const pauseButton = document.getElementById("pause-btn");
+const toggleButton = document.getElementById("toggle-btn");
 const resetButton = document.getElementById("reset-btn");
 
 // Update the displayed time
@@ -85,6 +84,8 @@ function startTimer() {
             completeSession();
         }
     }, 1000);
+
+    toggleButton.textContent = "Pause";
 }
 
 function completeSession() {
@@ -111,6 +112,7 @@ function completeSession() {
 
 // Pause the timer
 function pauseTimer() {
+    toggleButton.textContent = "Start";
     clearInterval(timerInterval);
     timerInterval = null;
 }
@@ -142,8 +144,10 @@ function switchMode(mode) {
     }
 
     if (mode === "focus") {
+        document.body.classList.add("focus-mode");
         document.body.classList.remove("break-mode");
     } else {
+        document.body.classList.remove("focus-mode");
         document.body.classList.add("break-mode");
     }
 
@@ -164,6 +168,9 @@ homeLink.addEventListener("click", function(event) {
 
     // Reset to focus mode
     switchMode("focus");
+    document.body.classList.remove("focus-mode");
+    document.body.classList.remove("break-mode");
+
 });
 // document.getElementById("focus-mode").addEventListener("click", function() {
 //     switchMode("focus");
@@ -178,6 +185,11 @@ homeLink.addEventListener("click", function(event) {
 // });
 
 // Button click events
-startButton.addEventListener("click", startTimer);
-pauseButton.addEventListener("click", pauseTimer);
+toggleButton.addEventListener("click", function() {
+    if (timerInterval === null) {
+        startTimer();
+    } else {
+        pauseTimer();
+    }
+});
 resetButton.addEventListener("click", resetTimer);

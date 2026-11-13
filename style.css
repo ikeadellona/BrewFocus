@@ -8,32 +8,51 @@ body {
     transition: background-color 0.8s ease;
 }
 
+/* Focus session background */
+body.focus-mode {
+    background-image: url("images/study-background.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* break session background */
 body.break-mode {
-    background-color: #263E50;
+    background-image: url("images/break-background.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+body.break-mode .drink-container {
+    display: none;
 }
 
 .app {
     width: 100%;
-    min-height: 100dvh;
-    padding: 20px 40px;
+    height: 100dvh;
     box-sizing: border-box;
 
     display: flex;
     flex-direction: column;
+
+    padding: 0;
 }
 
-/* style our cafe header */
 .app-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
 
-    background-color: transparent;
-    border: none;
-    border-bottom: 1px solid #C7A787;
+    background-color: rgba(244, 228, 201, 0.85);
 
-    padding: 15px 0;
+    padding: 15px 25px;
+    border-bottom: 2px solid #B98D68;
+
     width: 100%;
+    box-sizing: border-box;
 }
 
 .app-header h1 {
@@ -113,21 +132,20 @@ body.break-mode {
 }
 
 #timer-screen {
+    position: relative;
     width: 100%;
-    max-width: 1100px;
-    margin: auto;
+    flex: 1;
+    min-height: 0;
 
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    grid-template-rows: repeat(4, auto);
-    align-content: center;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 15px;
 
     background: transparent;
     border: none;
     padding: 0;
 }
+
 
 #timer-screen h2,
 #session-label,
@@ -143,16 +161,66 @@ body.break-mode {
 }
 
 #timer-display {
-    font-size: 60px;
-    font-weight: bold;
+    text-align: center;
     color: #67412E;
-    margin: 20px 0;
+    font-family: "Press Start 2P", monospace;
+    font-size: 64px;
+
+    padding: 25px 50px;
+
+    background-color: rgba(255, 243, 223, 0.9);
+    border: 4px solid #67412E;
+    box-shadow: 6px 6px 0px #3E261B;
+    border-radius: 0;
+
+    width: fit-content;
+    max-width: 95vw;
+    box-sizing: border-box;
+    margin: 10px auto;
+
+    font-size: clamp(32px, 5vw, 72px);
 }
 
+/* #timer-display {
+    font-weight: bold;
+    text-align: center;
+    color: #67412E;
+    font-family: "Press Start 2P", monospace;
+    font-size: 48px;
+    line-height: 1.5;
+
+    font-size: clamp(24px, 4vw, 48px);
+    max-width: 90vw;
+    box-sizing: border-box;
+
+    background-color: rgba(255, 243, 223, 0.9);
+
+    border: 4px solid #67412E;
+    border-radius: 0;
+
+    padding: 12px 30px;
+    width: fit-content;
+
+    box-shadow: 6px 6px 0px #3E261B;
+
+    margin: 10px auto;
+
+} */
+
 .timer-controls {
+
+    position: absolute;
+
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+
     display: flex;
-    justify-content: flex-start;
-    gap: 10px;
+    justify-content: center;
+    gap: 12px;
+
+    width: max-content;
+    max-width: 100%;
 }
 
 .timer-controls button {
@@ -170,12 +238,17 @@ body.break-mode {
 }
 
 .drink-container {
-    position: relative;
-    grid-column: 2;
-    grid-row: 1 / 5;
-    width: 450px;
-    height: 450px;
-    margin: auto;
+    position: absolute;
+
+    left: 50%;
+    top:65%;
+    transform: translate(-50%, -50%);
+
+    width: min(400px, 45vh, 85vw);
+    aspect-ratio: 1 / 1;
+    height: auto;
+
+    margin: 0;
     image-rendering: pixelated;
 }
 
@@ -241,9 +314,10 @@ body.break-mode {
 }
 
 #session-label {
-    font-size: 20px;
-    font-weight: bold;
-    color: #67412E;
+    text-align: center;
+    font-size: 22px;
+    color: #f0ecea;
+    margin: 10px 0;
 }
 
 .hidden {
