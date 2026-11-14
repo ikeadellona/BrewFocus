@@ -1,3 +1,20 @@
+@font-face {
+    font-family: "MyFont";
+    src: url("fonts/BERKY.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "HeadingFont";
+    src: url("fonts/Retrogression-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "CustomFont";
+    src: url("fonts/VCR_OSD_MONO_1.001.ttf") format("truetype");
+}
+
 html, body {
     margin: 0;
     min-height: 100%;
@@ -70,6 +87,8 @@ body.break-mode .drink-container {
 /* home link */
 
 #home-link {
+    font-family: "MyFont";
+    font-size: 30px;
     color: inherit;
     text-decoration: none;
     cursor: pointer;
@@ -86,15 +105,19 @@ body.break-mode .drink-container {
 }
 
 .drink-menu h2 {
-    text-align: center;
+    font-family: "HeadingFont", cursive;
+    font-size: 55px;
+    font-weight: normal;
     color: #67412E;
-    font-size: 28px;
+    text-align: center;
+    transform: translateY(-80px);
 }
 
 .drink-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 15px;
+    transform: translateY(-80px);
 }
 
 /*  style each drink button  */
@@ -104,7 +127,7 @@ body.break-mode .drink-container {
     color: #67412E;
     border: 3px solid #B98D68;
     padding: 20px;
-    font-family: monospace;
+    font-family: "CustomFont", monospace;
     font-size: 20px;
     cursor: pointer;
 }
@@ -121,8 +144,8 @@ body.break-mode .drink-container {
 }
 
 .drink-card.selected {
-    background-color: #92b27c;
-    border-color: #4A5D3A;
+    background-color: #7a5b4cac;
+    border-color: #67412E;
 }
 
 #drink-screen {
@@ -228,7 +251,7 @@ body.break-mode .drink-container {
     color: #67412E;
     border: 3px solid #67412E;
     padding: 10px 20px;
-    font-family: monospace;
+    font-family: "CustomFont", monospace;
     font-size: 16px;
     cursor: pointer;
 }
@@ -305,7 +328,7 @@ body.break-mode .drink-container {
     color: #67412E;
     border: 2px solid #67412E;
     padding: 10px;
-    font-family: monospace;
+    font-family: "Pixelify Sans", sans-serif;
     cursor: pointer;
 }
 
@@ -314,8 +337,10 @@ body.break-mode .drink-container {
 }
 
 #session-label {
+    font-family: "HeadingFont", cursive;
+    font-size: 40px;
+    font-weight: normal;
     text-align: center;
-    font-size: 22px;
     color: #f0ecea;
     margin: 10px 0;
 }
