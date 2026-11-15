@@ -1,5 +1,6 @@
 const drinkButtons = document.querySelectorAll(".drink-card");
 const selectedDrinkText = document.getElementById("selected-drink");
+const notificationSound = new Audio("sounds/chimeout.mp3");
 
 drinkButtons.forEach(function(button) {
 
@@ -22,9 +23,6 @@ drinkButtons.forEach(function(button) {
 
         // Set the timer to focus mode
         switchMode("focus");
-
-        // Automatically start the timer
-        startTimer();
 
     });
 });
@@ -79,7 +77,7 @@ function startTimer() {
         timeLeft--;
         updateDisplay();
 
-        if (timeLeft <= 0) {
+        if (timeLeft === 0) {
             pauseTimer();
             completeSession();
         }
@@ -91,6 +89,11 @@ function startTimer() {
 function completeSession() {
     pauseTimer();
 
+    notificationSound.currentTime = 0;
+    notificationSound.play().catch(function(error) {
+        console.log("Sound could not play:", error);
+    });
+
     if (currentMode === "focus") {
         completedSessions++;
 
@@ -101,9 +104,13 @@ function completeSession() {
         }
 
         alert("Focus complete! Time for a break!");
+        notificationSound.pause();
+        notificationSound.currentTime = 0;
     } else {
         switchMode("focus");
         alert("Break complete! Ready to focus?");
+        notificationSound.pause();
+        notificationSound.currentTime = 0;
     }
 
     startTimer();
