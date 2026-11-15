@@ -30,12 +30,12 @@ drinkButtons.forEach(function(button) {
 // Timer variables
 
 const durations = {
-    // focus: 25 * 60,
-    // shortBreak: 5 * 60,
-    // longBreak: 15 * 60
-    focus: 10,
-    shortBreak: 5,
-    longBreak: 8
+    focus: 25 * 60,
+    shortBreak: 5 * 60,
+    longBreak: 15 * 60
+    // focus: 10,
+    // shortBreak: 5,
+    // longBreak: 8
 };
 
 let currentMode = "focus";
